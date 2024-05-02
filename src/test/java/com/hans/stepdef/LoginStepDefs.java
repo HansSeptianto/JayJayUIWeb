@@ -35,4 +35,13 @@ public class LoginStepDefs extends BaseTest {
     public void userAbleToSeeErrorMessage(String errorMessage) {
         loginPage.validateErrorAppear(errorMessage);
     }
+
+    @Given("user logged in")
+    public void userLoggedIn() {
+        loginPage = new LoginPage(driver);
+        loginPage.goToLoginPage();
+        loginPage.inputUsername("standard_user");
+        loginPage.inputPassword("secret_sauce");
+        loginPage.clickLoginButton();
+    }
 }
